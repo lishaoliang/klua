@@ -54,6 +54,13 @@
 #define CJSON_VERSION   "2.1.0"
 #endif
 
+// windows[2019-05-11]
+#ifdef WIN32
+#ifndef strncasecmp
+#define strncasecmp     strnicmp
+#endif
+#endif
+
 /* Workaround for Solaris platforms missing isinf() */
 #if !defined(isinf) && (defined(USE_INTERNAL_ISINF) || defined(MISSING_ISINF))
 #define isinf(x) (!isnan(x) && isnan((x) - (x)))

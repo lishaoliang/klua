@@ -7,6 +7,18 @@
     <Filter Include="lua-5.3.5\src">
       <UniqueIdentifier>{3bcc86e4-3e69-4d67-bc80-0b5b23e62439}</UniqueIdentifier>
     </Filter>
+    <Filter Include="lua-cjson-2.1.0">
+      <UniqueIdentifier>{86fefe8a-d060-4999-8e6c-a97eba026584}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="luafilesystem-2.0">
+      <UniqueIdentifier>{966b09be-f895-48a7-9782-195c34f0fff8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="luafilesystem-2.0\src">
+      <UniqueIdentifier>{a6e2571f-80f8-4ee8-88a5-e8a541d7fed1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lpeg-1.0.2">
+      <UniqueIdentifier>{667204a8-442d-4bfa-90ba-5977fef7e037}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\lua-5.3.5\src\lapi.c">
@@ -108,6 +120,33 @@
     <ClCompile Include="..\src\lua-5.3.5\src\lzio.c">
       <Filter>lua-5.3.5\src</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\lua-cjson-2.1.0\fpconv.c">
+      <Filter>lua-cjson-2.1.0</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\lua-cjson-2.1.0\lua_cjson.c">
+      <Filter>lua-cjson-2.1.0</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\lua-cjson-2.1.0\strbuf.c">
+      <Filter>lua-cjson-2.1.0</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\luafilesystem-2.0\src\lfs.c">
+      <Filter>luafilesystem-2.0\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\lpeg-1.0.2\lpcap.c">
+      <Filter>lpeg-1.0.2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\lpeg-1.0.2\lpcode.c">
+      <Filter>lpeg-1.0.2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\lpeg-1.0.2\lpprint.c">
+      <Filter>lpeg-1.0.2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\lpeg-1.0.2\lptree.c">
+      <Filter>lpeg-1.0.2</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\lpeg-1.0.2\lpvm.c">
+      <Filter>lpeg-1.0.2</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\src\lua-5.3.5\src\lapi.h">
@@ -187,6 +226,33 @@
     </ClInclude>
     <ClInclude Include="..\src\lua-5.3.5\src\lzio.h">
       <Filter>lua-5.3.5\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\lua-cjson-2.1.0\fpconv.h">
+      <Filter>lua-cjson-2.1.0</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\lua-cjson-2.1.0\strbuf.h">
+      <Filter>lua-cjson-2.1.0</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\luafilesystem-2.0\src\lfs.h">
+      <Filter>luafilesystem-2.0\src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\lpeg-1.0.2\lpcap.h">
+      <Filter>lpeg-1.0.2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\lpeg-1.0.2\lpcode.h">
+      <Filter>lpeg-1.0.2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\lpeg-1.0.2\lpprint.h">
+      <Filter>lpeg-1.0.2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\lpeg-1.0.2\lptree.h">
+      <Filter>lpeg-1.0.2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\lpeg-1.0.2\lptypes.h">
+      <Filter>lpeg-1.0.2</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\lpeg-1.0.2\lpvm.h">
+      <Filter>lpeg-1.0.2</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

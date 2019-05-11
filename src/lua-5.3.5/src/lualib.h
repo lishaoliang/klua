@@ -9,6 +9,7 @@
 #define lualib_h
 
 #include "lua.h"
+#include "klua_cfg.h"
 
 
 /* version suffix for environment variable names */
@@ -47,6 +48,22 @@ LUAMOD_API int (luaopen_debug) (lua_State *L);
 #define LUA_LOADLIBNAME	"package"
 LUAMOD_API int (luaopen_package) (lua_State *L);
 
+#if LUA_CJSON
+#define LUA_CJSONNAME   "cjson"
+LUAMOD_API int (luaopen_cjson)(lua_State *L);
+#define LUA_CJSONSAFENAME "cjson.safe"
+LUAMOD_API int (luaopen_cjson_safe)(lua_State *L);
+#endif // LUA_CJSON
+
+#if LUA_LFS
+#define LUA_LFSNAME     "lfs"
+LUAMOD_API int (luaopen_lfs)(lua_State *L);
+#endif // LUA_LFS
+
+#if LUA_LPEG
+#define LUA_LPEGNAME    "lpeg"
+LUAMOD_API int (luaopen_lpeg)(lua_State *L);
+#endif // LUA_LPEG
 
 /* open all previous libraries */
 LUALIB_API void (luaL_openlibs) (lua_State *L);

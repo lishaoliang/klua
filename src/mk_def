@@ -11,4 +11,4 @@ my_ranlib := $(my_tool_chain)ranlib
 my_strip := $(my_tool_chain)strip
 my_flags := -m64 -D__LINUX__ -D__X86_64__
 
-my_lib_path := ../lib/debug/lib_linux64
+my_lib_path := ../lib/release/lib_linux64

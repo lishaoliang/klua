@@ -6,7 +6,8 @@ SHELL = /bin/bash
 -include ./mk_def
 
 # 从目录检索需要编译的c文件
-MY_DIRS := ./lua-5.3.5/src
+MY_DIRS := ./lua-5.3.5/src ./lua-cjson-2.1.0 ./luafilesystem-2.0/src
+MY_DIRS += ./lpeg-1.0.2
 
 # 编译选项
 MY_CFLAGS := -std=gnu99 -D_LIB
