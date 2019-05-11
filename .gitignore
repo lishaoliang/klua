@@ -3,6 +3,7 @@
 
 # Object files
 *.o
+*.oo
 *.ko
 *.obj
 *.elf
@@ -50,3 +51,9 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+
+# MSVC
+*.user
+*.tlog
+*.log
+*.suo

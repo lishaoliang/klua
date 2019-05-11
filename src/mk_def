@@ -1,0 +1,14 @@
+
+
+my_prefix := ./
+
+
+my_tool_chain :=
+my_cc := $(my_tool_chain)gcc
+my_cxx := $(my_tool_chain)g++
+my_ar := $(my_tool_chain)ar
+my_ranlib := $(my_tool_chain)ranlib
+my_strip := $(my_tool_chain)strip
+my_flags := -m64 -D__LINUX__ -D__X86_64__
+
+my_lib_path := ../lib/debug/lib_linux64
