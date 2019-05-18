@@ -110,7 +110,7 @@
       <AdditionalDependencies>liblua-5.3.5.lib;bgfx$(Configuration).lib;bimg_decode$(Configuration).lib;bimg$(Configuration).lib;bx$(Configuration).lib;example-common$(Configuration).lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(OutDir)$(TargetName)$(TargetExt) ..\..\ipc_my\l_lua\</Command>
+      <Command>copy $(OutDir)$(TargetName)$(TargetExt) ..\..\kltest</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -130,7 +130,7 @@
       <AdditionalDependencies>liblua-5.3.5.lib;bgfx$(Configuration).lib;bimg_decode$(Configuration).lib;bimg$(Configuration).lib;bx$(Configuration).lib;example-common$(Configuration).lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(OutDir)$(TargetName)$(TargetExt) ..\..\ipc_my\l_lua\</Command>
+      <Command>copy $(OutDir)$(TargetName)$(TargetExt) ..\..\kltest</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -154,7 +154,7 @@
       <AdditionalDependencies>liblua-5.3.5.lib;bgfx$(Configuration).lib;bimg_decode$(Configuration).lib;bimg$(Configuration).lib;bx$(Configuration).lib;example-common$(Configuration).lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(OutDir)$(TargetName)$(TargetExt) ..\..\ipc_my\l_lua\</Command>
+      <Command>copy $(OutDir)$(TargetName)$(TargetExt) ..\..\kltest</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -178,7 +178,7 @@
       <AdditionalDependencies>liblua-5.3.5.lib;bgfx$(Configuration).lib;bimg_decode$(Configuration).lib;bimg$(Configuration).lib;bx$(Configuration).lib;example-common$(Configuration).lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy $(OutDir)$(TargetName)$(TargetExt) ..\..\ipc_my\l_lua\</Command>
+      <Command>copy $(OutDir)$(TargetName)$(TargetExt) ..\..\kltest</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>

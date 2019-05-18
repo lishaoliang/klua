@@ -11,7 +11,7 @@ MY_DIRS := ../src/lua-5.3.5/app
 
 # 编译选项
 MY_CFLAGS := $(my_flags)
-MY_CFLAGS += -std=gnu99
+MY_CFLAGS += -std=gnu99 -DBGFX_STATIC_LINK
 
 # 引用头文件
 MY_INCLUDES := -I ../src/lua-5.3.5/src
