@@ -12,11 +12,15 @@ LUA集成开发环境，开箱即用。
 * 必须MIT、BSD协议。
 * [许可证](https://github.com/lishaoliang/klua/tree/master/license_all)
 
-## 感谢以下集成库
+
+## 感谢
 * 主解析器：lua-5.3.5(http://www.lua.org/)
 * json解析器：lua-cjson-2.1.0(https://www.kyne.com.au/~mark/software/lua-cjson.php)
 * lfs目录访问：luafilesystem-2.0(http://keplerproject.github.io/luafilesystem/)
-* lpeg解析匹配：(http://www.inf.puc-rio.br/~roberto/lpeg/)
+* lpeg解析匹配：lpeg(http://www.inf.puc-rio.br/~roberto/lpeg/)
+
+* bgfx跨平台图形库：bgfx(https://github.com/bkaradzic/bgfx)
+* lua-bgfx：(https://github.com/cloudwu/lua-bgfx)
 
 
 ## 为什么叫klua
