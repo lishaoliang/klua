@@ -99,7 +99,7 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;BGFX_STATIC_LINK;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>..\src\lua-5.3.5\src;..\src\inc;..\bgfx\lua-bgfx;..\bgfx\bgfx\include;..\bgfx\bx\include;..\bgfx\bimg\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
@@ -109,6 +109,9 @@
       <AdditionalLibraryDirectories>..\lib\$(Configuration)\lib_msc_$(Platform)\;..\bgfx\bgfx\.build\win32_vs2015\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>liblua-5.3.5.lib;bgfx$(Configuration).lib;bimg_decode$(Configuration).lib;bimg$(Configuration).lib;bx$(Configuration).lib;example-common$(Configuration).lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>copy $(OutDir)$(TargetName)$(TargetExt) ..\..\ipc_my\l_lua\</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -126,6 +129,9 @@
       <AdditionalLibraryDirectories>..\lib\$(Configuration)\lib_msc_$(Platform)\;..\bgfx\bgfx\.build\win32_vs2015\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>liblua-5.3.5.lib;bgfx$(Configuration).lib;bimg_decode$(Configuration).lib;bimg$(Configuration).lib;bx$(Configuration).lib;example-common$(Configuration).lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>copy $(OutDir)$(TargetName)$(TargetExt) ..\..\ipc_my\l_lua\</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -147,6 +153,9 @@
       <AdditionalLibraryDirectories>..\lib\$(Configuration)\lib_msc_$(Platform)\;..\bgfx\bgfx\.build\win32_vs2015\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>liblua-5.3.5.lib;bgfx$(Configuration).lib;bimg_decode$(Configuration).lib;bimg$(Configuration).lib;bx$(Configuration).lib;example-common$(Configuration).lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>copy $(OutDir)$(TargetName)$(TargetExt) ..\..\ipc_my\l_lua\</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -168,6 +177,9 @@
       <AdditionalLibraryDirectories>..\lib\$(Configuration)\lib_msc_$(Platform)\;..\bgfx\bgfx\.build\win32_vs2015\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>liblua-5.3.5.lib;bgfx$(Configuration).lib;bimg_decode$(Configuration).lib;bimg$(Configuration).lib;bx$(Configuration).lib;example-common$(Configuration).lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>copy $(OutDir)$(TargetName)$(TargetExt) ..\..\ipc_my\l_lua\</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="..\src\lua-5.3.5\app\app.c" />
@@ -179,6 +191,10 @@
     <None Include="..\src\mk_def" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\bgfx\lua-bgfx\bgfx_interface.h" />
+    <ClInclude Include="..\bgfx\lua-bgfx\luabgfx.h" />
+    <ClInclude Include="..\bgfx\lua-bgfx\math3d.h" />
+    <ClInclude Include="..\bgfx\lua-bgfx\simplelock.h" />
     <ClInclude Include="..\src\inc\klua_cfg.h" />
     <ClInclude Include="..\src\lua-5.3.5\app\app.h" />
   </ItemGroup>

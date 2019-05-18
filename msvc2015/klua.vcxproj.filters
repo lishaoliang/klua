@@ -16,6 +16,9 @@
     <Filter Include="build">
       <UniqueIdentifier>{8b370316-aeea-4382-81bc-f3e837b6cfdf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="bgfx">
+      <UniqueIdentifier>{d4f09970-6ba1-4685-9bb8-20fc40633bab}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\lua-5.3.5\app\lua.c">
@@ -42,6 +45,18 @@
     </ClInclude>
     <ClInclude Include="..\src\lua-5.3.5\app\app.h">
       <Filter>lua-5.3.5\app</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bgfx\lua-bgfx\luabgfx.h">
+      <Filter>bgfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bgfx\lua-bgfx\math3d.h">
+      <Filter>bgfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bgfx\lua-bgfx\simplelock.h">
+      <Filter>bgfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\bgfx\lua-bgfx\bgfx_interface.h">
+      <Filter>bgfx</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

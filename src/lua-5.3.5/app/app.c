@@ -1,11 +1,46 @@
 #include "app.h"
+#include "klua_cfg.h"
 
-int main(int argc, char **argv)
+#if LUA_MATH3D
+#include "libmath.c"
+#endif
+
+#if LUA_BGFX
+#include "luabgfx.c"
+#endif
+
+
+static void pre_loadlib(lua_State* L, const char* p_name, lua_CFunction func)
 {
-    return lua_main(argc, argv);
+    // ‘§º”‘ÿ¿©’πæ≤Ã¨ø‚
+    luaL_getsubtable(L, LUA_REGISTRYINDEX, "_PRELOAD");
+
+    lua_pushcfunction(L, func);
+    lua_setfield(L, -2, p_name);
+
+    lua_pop(L, 1);  // remove _PRELOAD table
 }
 
 int app_openlibs_ex(lua_State *L)
 {
+#if LUA_BGFX
+    pre_loadlib(L, "bgfx", luaopen_bgfx);
+#endif
+
+#if LUA_MATH3D
+    pre_loadlib(L, "math3d", luaopen_math3d);
+#endif
+
     return 0;
 }
+
+//////////////////////////////////////////////////////////////////////////
+
+#ifndef __W_LUA__
+int main(int argc, char **argv)
+{
+    int ret = lua_main(argc, argv);
+
+    return ret;
+}
+#endif
