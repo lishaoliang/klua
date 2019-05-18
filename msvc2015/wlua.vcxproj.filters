@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{bd267347-376b-4a81-8631-444570e15af3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lua-5.3.5">
+      <UniqueIdentifier>{9fcf93ee-ec57-4698-bd80-1e980dd4f639}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lua-5.3.5\app">
+      <UniqueIdentifier>{dafb7d16-f5a9-4101-9cb4-4bc115cad737}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="inc">
+      <UniqueIdentifier>{394ac50d-ee21-426e-834c-defbde797bc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="build">
+      <UniqueIdentifier>{8b370316-aeea-4382-81bc-f3e837b6cfdf}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\src\lua-5.3.5\app\lua.c">
+      <Filter>lua-5.3.5\app</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\lua-5.3.5\app\app.c">
+      <Filter>lua-5.3.5\app</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\lua-5.3.5\app\wapp.c">
+      <Filter>lua-5.3.5\app</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\src\Makefile">
+      <Filter>src</Filter>
+    </None>
+    <None Include="..\src\mk_def">
+      <Filter>src</Filter>
+    </None>
+    <None Include="..\build\Makefile">
+      <Filter>build</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\inc\klua_cfg.h">
+      <Filter>inc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\lua-5.3.5\app\app.h">
+      <Filter>lua-5.3.5\app</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

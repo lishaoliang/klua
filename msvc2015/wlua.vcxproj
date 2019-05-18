@@ -19,33 +19,33 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1FBC4C8D-AFA0-469E-BF93-9B6740492428}</ProjectGuid>
+    <ProjectGuid>{596FAF70-1215-4DE8-8C9E-12848D331854}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>lua5dll</RootNamespace>
+    <RootNamespace>klua</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v140_xp</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v140_xp</PlatformToolset>
     <WholeProgramOptimization>false</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <PlatformToolset>v140</PlatformToolset>
+    <PlatformToolset>v140_xp</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
-    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v140_xp</PlatformToolset>
     <WholeProgramOptimization>false</WholeProgramOptimization>
@@ -71,27 +71,27 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <OutDir>..\lib\$(Configuration)\lib_msc_$(Platform)\</OutDir>
     <IntDir>$(ProjectName)_$(Configuration)\</IntDir>
-    <TargetName>liblua-5.3.5</TargetName>
+    <TargetName>wlua</TargetName>
+    <OutDir>..\lib\$(Configuration)\lib_msc_$(Platform)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <IntDir>$(ProjectName)_$(Configuration)\</IntDir>
-    <TargetName>liblua-5.3.5</TargetName>
+    <TargetName>wlua</TargetName>
     <OutDir>..\lib\$(Configuration)\lib_msc_$(Platform)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <IntDir>$(ProjectName)_$(Configuration)\</IntDir>
-    <TargetName>liblua-5.3.5</TargetName>
     <OutDir>..\lib\$(Configuration)\lib_msc_$(Platform)\</OutDir>
+    <TargetName>wlua</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
-    <OutDir>..\lib\$(Configuration)\lib_msc_$(Platform)\</OutDir>
     <IntDir>$(ProjectName)_$(Configuration)\</IntDir>
-    <TargetName>liblua-5.3.5</TargetName>
+    <TargetName>wlua</TargetName>
+    <OutDir>..\lib\$(Configuration)\lib_msc_$(Platform)\</OutDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -99,12 +99,15 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;LUA_BUILD_AS_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\src\inc;..\src\lua-5.3.5\src;..\src\lua-cjson-2.1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;__W_LUA__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\src\lua-5.3.5\src;..\src\inc;..\bgfx\lua-bgfx;..\bgfx\bgfx\include;..\bgfx\bx\include;..\bgfx\bimg\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\lib\$(Configuration)\lib_msc_$(Platform)\;..\bgfx\bgfx\.build\win32_vs2015\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>liblua-5.3.5.lib;bgfx$(Configuration).lib;bimg_decode$(Configuration).lib;bimg$(Configuration).lib;bx$(Configuration).lib;example-common$(Configuration).lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
     </Link>
     <PostBuildEvent>
       <Command>copy $(OutDir)$(TargetName)$(TargetExt) ..\..\ipc_my\l_lua\</Command>
@@ -116,12 +119,15 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>_DEBUG;_WINDOWS;_USRDLL;LUA_BUILD_AS_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\src\inc;..\src\lua-5.3.5\src;..\src\lua-cjson-2.1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;__W_LUA__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\src\lua-5.3.5\src;..\src\inc;..\bgfx\lua-bgfx;..\bgfx\bgfx\include;..\bgfx\bx\include;..\bgfx\bimg\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\lib\$(Configuration)\lib_msc_$(Platform)\;..\bgfx\bgfx\.build\win32_vs2015\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>liblua-5.3.5.lib;bgfx$(Configuration).lib;bimg_decode$(Configuration).lib;bimg$(Configuration).lib;bx$(Configuration).lib;example-common$(Configuration).lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
     </Link>
     <PostBuildEvent>
       <Command>copy $(OutDir)$(TargetName)$(TargetExt) ..\..\ipc_my\l_lua\</Command>
@@ -135,15 +141,18 @@
       <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;LUA_BUILD_AS_DLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\src\inc;..\src\lua-5.3.5\src;..\src\lua-cjson-2.1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;__W_LUA__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\src\lua-5.3.5\src;..\src\inc;..\bgfx\lua-bgfx;..\bgfx\bgfx\include;..\bgfx\bx\include;..\bgfx\bimg\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\lib\$(Configuration)\lib_msc_$(Platform)\;..\bgfx\bgfx\.build\win32_vs2015\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>liblua-5.3.5.lib;bgfx$(Configuration).lib;bimg_decode$(Configuration).lib;bimg$(Configuration).lib;bx$(Configuration).lib;example-common$(Configuration).lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
     </Link>
     <PostBuildEvent>
       <Command>copy $(OutDir)$(TargetName)$(TargetExt) ..\..\ipc_my\l_lua\</Command>
@@ -157,99 +166,36 @@
       <Optimization>Disabled</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>NDEBUG;_WINDOWS;_USRDLL;LUA5DLL_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\src\inc;..\src\lua-5.3.5\src;..\src\lua-cjson-2.1.0;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;__W_LUA__;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\src\lua-5.3.5\src;..\src\inc;..\bgfx\lua-bgfx;..\bgfx\bgfx\include;..\bgfx\bx\include;..\bgfx\bimg\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\lib\$(Configuration)\lib_msc_$(Platform)\;..\bgfx\bgfx\.build\win32_vs2015\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>liblua-5.3.5.lib;bgfx$(Configuration).lib;bimg_decode$(Configuration).lib;bimg$(Configuration).lib;bx$(Configuration).lib;example-common$(Configuration).lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <EntryPointSymbol>mainCRTStartup</EntryPointSymbol>
     </Link>
     <PostBuildEvent>
       <Command>copy $(OutDir)$(TargetName)$(TargetExt) ..\..\ipc_my\l_lua\</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\lpeg-1.0.2\lpcap.c" />
-    <ClCompile Include="..\src\lpeg-1.0.2\lpcode.c" />
-    <ClCompile Include="..\src\lpeg-1.0.2\lpprint.c" />
-    <ClCompile Include="..\src\lpeg-1.0.2\lptree.c" />
-    <ClCompile Include="..\src\lpeg-1.0.2\lpvm.c" />
-    <ClCompile Include="..\src\lua-5.3.5\src\lapi.c" />
-    <ClCompile Include="..\src\lua-5.3.5\src\lauxlib.c" />
-    <ClCompile Include="..\src\lua-5.3.5\src\lbaselib.c" />
-    <ClCompile Include="..\src\lua-5.3.5\src\lbitlib.c" />
-    <ClCompile Include="..\src\lua-5.3.5\src\lcode.c" />
-    <ClCompile Include="..\src\lua-5.3.5\src\lcorolib.c" />
-    <ClCompile Include="..\src\lua-5.3.5\src\lctype.c" />
-    <ClCompile Include="..\src\lua-5.3.5\src\ldblib.c" />
-    <ClCompile Include="..\src\lua-5.3.5\src\ldebug.c" />
-    <ClCompile Include="..\src\lua-5.3.5\src\ldo.c" />
-    <ClCompile Include="..\src\lua-5.3.5\src\ldump.c" />
-    <ClCompile Include="..\src\lua-5.3.5\src\lfunc.c" />
-    <ClCompile Include="..\src\lua-5.3.5\src\lgc.c" />
-    <ClCompile Include="..\src\lua-5.3.5\src\linit.c" />
-    <ClCompile Include="..\src\lua-5.3.5\src\liolib.c" />
-    <ClCompile Include="..\src\lua-5.3.5\src\llex.c" />
-    <ClCompile Include="..\src\lua-5.3.5\src\lmathlib.c" />
-    <ClCompile Include="..\src\lua-5.3.5\src\lmem.c" />
-    <ClCompile Include="..\src\lua-5.3.5\src\loadlib.c" />
-    <ClCompile Include="..\src\lua-5.3.5\src\lobject.c" />
-    <ClCompile Include="..\src\lua-5.3.5\src\lopcodes.c" />
-    <ClCompile Include="..\src\lua-5.3.5\src\loslib.c" />
-    <ClCompile Include="..\src\lua-5.3.5\src\lparser.c" />
-    <ClCompile Include="..\src\lua-5.3.5\src\lstate.c" />
-    <ClCompile Include="..\src\lua-5.3.5\src\lstring.c" />
-    <ClCompile Include="..\src\lua-5.3.5\src\lstrlib.c" />
-    <ClCompile Include="..\src\lua-5.3.5\src\ltable.c" />
-    <ClCompile Include="..\src\lua-5.3.5\src\ltablib.c" />
-    <ClCompile Include="..\src\lua-5.3.5\src\ltm.c" />
-    <ClCompile Include="..\src\lua-5.3.5\src\lundump.c" />
-    <ClCompile Include="..\src\lua-5.3.5\src\lutf8lib.c" />
-    <ClCompile Include="..\src\lua-5.3.5\src\lvm.c" />
-    <ClCompile Include="..\src\lua-5.3.5\src\lzio.c" />
-    <ClCompile Include="..\src\lua-cjson-2.1.0\fpconv.c" />
-    <ClCompile Include="..\src\lua-cjson-2.1.0\lua_cjson.c" />
-    <ClCompile Include="..\src\lua-cjson-2.1.0\strbuf.c" />
-    <ClCompile Include="..\src\luafilesystem-2.0\src\lfs.c" />
+    <ClCompile Include="..\src\lua-5.3.5\app\app.c" />
+    <ClCompile Include="..\src\lua-5.3.5\app\lua.c" />
+    <ClCompile Include="..\src\lua-5.3.5\app\wapp.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\src\lpeg-1.0.2\lpcap.h" />
-    <ClInclude Include="..\src\lpeg-1.0.2\lpcode.h" />
-    <ClInclude Include="..\src\lpeg-1.0.2\lpprint.h" />
-    <ClInclude Include="..\src\lpeg-1.0.2\lptree.h" />
-    <ClInclude Include="..\src\lpeg-1.0.2\lptypes.h" />
-    <ClInclude Include="..\src\lpeg-1.0.2\lpvm.h" />
-    <ClInclude Include="..\src\lua-5.3.5\src\lapi.h" />
-    <ClInclude Include="..\src\lua-5.3.5\src\lauxlib.h" />
-    <ClInclude Include="..\src\lua-5.3.5\src\lcode.h" />
-    <ClInclude Include="..\src\lua-5.3.5\src\lctype.h" />
-    <ClInclude Include="..\src\lua-5.3.5\src\ldebug.h" />
-    <ClInclude Include="..\src\lua-5.3.5\src\ldo.h" />
-    <ClInclude Include="..\src\lua-5.3.5\src\lfunc.h" />
-    <ClInclude Include="..\src\lua-5.3.5\src\lgc.h" />
-    <ClInclude Include="..\src\lua-5.3.5\src\llex.h" />
-    <ClInclude Include="..\src\lua-5.3.5\src\llimits.h" />
-    <ClInclude Include="..\src\lua-5.3.5\src\lmem.h" />
-    <ClInclude Include="..\src\lua-5.3.5\src\lobject.h" />
-    <ClInclude Include="..\src\lua-5.3.5\src\lopcodes.h" />
-    <ClInclude Include="..\src\lua-5.3.5\src\lparser.h" />
-    <ClInclude Include="..\src\lua-5.3.5\src\lprefix.h" />
-    <ClInclude Include="..\src\lua-5.3.5\src\lstate.h" />
-    <ClInclude Include="..\src\lua-5.3.5\src\lstring.h" />
-    <ClInclude Include="..\src\lua-5.3.5\src\ltable.h" />
-    <ClInclude Include="..\src\lua-5.3.5\src\ltm.h" />
-    <ClInclude Include="..\src\lua-5.3.5\src\lua.h" />
-    <ClInclude Include="..\src\lua-5.3.5\src\lua.hpp" />
-    <ClInclude Include="..\src\lua-5.3.5\src\luaconf.h" />
-    <ClInclude Include="..\src\lua-5.3.5\src\lualib.h" />
-    <ClInclude Include="..\src\lua-5.3.5\src\lundump.h" />
-    <ClInclude Include="..\src\lua-5.3.5\src\lvm.h" />
-    <ClInclude Include="..\src\lua-5.3.5\src\lzio.h" />
-    <ClInclude Include="..\src\lua-cjson-2.1.0\fpconv.h" />
-    <ClInclude Include="..\src\lua-cjson-2.1.0\strbuf.h" />
-    <ClInclude Include="..\src\luafilesystem-2.0\src\lfs.h" />
+    <None Include="..\build\Makefile" />
+    <None Include="..\src\Makefile" />
+    <None Include="..\src\mk_def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\src\inc\klua_cfg.h" />
+    <ClInclude Include="..\src\lua-5.3.5\app\app.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

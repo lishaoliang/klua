@@ -1,4 +1,4 @@
-# 编译命令 : make
+﻿# 编译命令 : make
 
 SHELL = /bin/bash
 
@@ -10,17 +10,19 @@ MY_DIRS := ../src/lua-5.3.5/app
 
 
 # 编译选项
-MY_CFLAGS := -std=gnu99
+MY_CFLAGS := $(my_flags)
+MY_CFLAGS += -std=gnu99
 
 # 引用头文件
 MY_INCLUDES := -I ../src/lua-5.3.5/src
 MY_INCLUDES += -I ../src/inc
+MY_INCLUDES += -I ../bgfx/bx/include -I ../bgfx/bimg/include -I ../bgfx/bgfx/include -I ../bgfx/lua-bgfx
 
 # 引用的静态库
-MY_LIB_STATIC := -L $(my_lib_path) -Bstatic -llua-5.3.5
+MY_LIB_STATIC := -L $(my_lib_path) -Bstatic -llua-5.3.5 -lbgfxRelease -lbimg_encodeRelease -lbimgRelease -lbxRelease -lGLU -lGL -lX11
 
 # 引用的动态库
-MY_LIB_DYNAMIC := -L $(my_lib_path) -Bdynamic -lm -ldl
+MY_LIB_DYNAMIC := -L $(my_lib_path) -Bdynamic -lm -ldl -lpthread
 
 # 编译目标名称
 MY_TARGET_NAME := klua
@@ -60,7 +62,7 @@ MY_LIB_MINI = -ffunction-sections -fdata-sections
 MY_LINK_MINI = -Wl,--gc-sections
 
 
-.PHONY: all clean
+.PHONY: all clean install
 
 all: exe
 
@@ -79,7 +81,7 @@ depends:
 
 $(MY_TARGET_EXE): depends $(MY_LIB_A_OBJS)
 	$(my_tip)
-	$(CC) -o $@ $(MY_LIB_A_OBJS) $(MY_A_PARAMS) $(MY_LINK_MINI)
+	$(CXX) -o $@ $(MY_LIB_A_OBJS) $(MY_A_PARAMS) $(MY_LINK_MINI)
 
 $(MY_TARGET_A): $(MY_LIB_A_OBJS)
 	$(my_tip)
@@ -102,6 +104,12 @@ clean:
 	$(RM) $(MY_TARGET_A)
 	$(RM) $(MY_TARGET_SO)
 	@echo "+++++++++++++++++++++++++"
+
+strip:
+	$(CSTRIP) $(MY_TARGET_EXE)
+
+install:
+	$(CP) $(MY_TARGET_EXE) $(INSTALL_BIN)/
 
 define my_tip
 	@echo "++++++ make tip ++++++"
