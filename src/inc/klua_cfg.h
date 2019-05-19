@@ -9,7 +9,7 @@
 /// @brief lua模块配置
 #define LUA_COMPAT_5_1
 #define LUA_COMPAT_5_2
-#define LUA_32BITS
+//#define LUA_32BITS
 
 
 #if !defined(_WIN32)
@@ -32,6 +32,8 @@
 /// @brief "lpeg"模块
 #define LUA_LPEG                1
 
+/// @brief "hash"模块
+#define LUA_HASH                1
 
 
 //////////////////////////////////////////////////////////////////////////

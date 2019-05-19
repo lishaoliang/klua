@@ -100,14 +100,14 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;BGFX_STATIC_LINK;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\src\lua-5.3.5\src;..\src\inc;..\bgfx\lua-bgfx;..\bgfx\bgfx\include;..\bgfx\bx\include;..\bgfx\bimg\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\src\lua-5.3.5\src;..\..\klb\inc;..\src\inc;..\bgfx\lua-bgfx;..\bgfx\bgfx\include;..\bgfx\bx\include;..\bgfx\bimg\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>..\lib\$(Configuration)\lib_msc_$(Platform)\;..\bgfx\bgfx\.build\win32_vs2015\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>liblua-5.3.5.lib;bgfx$(Configuration).lib;bimg_decode$(Configuration).lib;bimg$(Configuration).lib;bx$(Configuration).lib;example-common$(Configuration).lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>liblua-5.3.5.lib;libklb.lib;bgfx$(Configuration).lib;bimg_decode$(Configuration).lib;bimg$(Configuration).lib;bx$(Configuration).lib;example-common$(Configuration).lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>copy $(OutDir)$(TargetName)$(TargetExt) ..\..\kltest</Command>
@@ -120,14 +120,14 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\src\lua-5.3.5\src;..\src\inc;..\bgfx\lua-bgfx;..\bgfx\bgfx\include;..\bgfx\bx\include;..\bgfx\bimg\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\src\lua-5.3.5\src;..\..\klb\inc;..\src\inc;..\bgfx\lua-bgfx;..\bgfx\bgfx\include;..\bgfx\bx\include;..\bgfx\bimg\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>..\lib\$(Configuration)\lib_msc_$(Platform)\;..\bgfx\bgfx\.build\win32_vs2015\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>liblua-5.3.5.lib;bgfx$(Configuration).lib;bimg_decode$(Configuration).lib;bimg$(Configuration).lib;bx$(Configuration).lib;example-common$(Configuration).lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>liblua-5.3.5.lib;libklb.lib;bgfx$(Configuration).lib;bimg_decode$(Configuration).lib;bimg$(Configuration).lib;bx$(Configuration).lib;example-common$(Configuration).lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>copy $(OutDir)$(TargetName)$(TargetExt) ..\..\kltest</Command>
@@ -142,7 +142,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\src\lua-5.3.5\src;..\src\inc;..\bgfx\lua-bgfx;..\bgfx\bgfx\include;..\bgfx\bx\include;..\bgfx\bimg\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\src\lua-5.3.5\src;..\..\klb\inc;..\src\inc;..\bgfx\lua-bgfx;..\bgfx\bgfx\include;..\bgfx\bx\include;..\bgfx\bimg\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -151,7 +151,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <AdditionalLibraryDirectories>..\lib\$(Configuration)\lib_msc_$(Platform)\;..\bgfx\bgfx\.build\win32_vs2015\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>liblua-5.3.5.lib;bgfx$(Configuration).lib;bimg_decode$(Configuration).lib;bimg$(Configuration).lib;bx$(Configuration).lib;example-common$(Configuration).lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>liblua-5.3.5.lib;libklb.lib;bgfx$(Configuration).lib;bimg_decode$(Configuration).lib;bimg$(Configuration).lib;bx$(Configuration).lib;example-common$(Configuration).lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>copy $(OutDir)$(TargetName)$(TargetExt) ..\..\kltest</Command>
@@ -166,7 +166,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\src\lua-5.3.5\src;..\src\inc;..\bgfx\lua-bgfx;..\bgfx\bgfx\include;..\bgfx\bx\include;..\bgfx\bimg\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\src\lua-5.3.5\src;..\..\klb\inc;..\src\inc;..\bgfx\lua-bgfx;..\bgfx\bgfx\include;..\bgfx\bx\include;..\bgfx\bimg\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -175,7 +175,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>..\lib\$(Configuration)\lib_msc_$(Platform)\;..\bgfx\bgfx\.build\win32_vs2015\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>liblua-5.3.5.lib;bgfx$(Configuration).lib;bimg_decode$(Configuration).lib;bimg$(Configuration).lib;bx$(Configuration).lib;example-common$(Configuration).lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>liblua-5.3.5.lib;libklb.lib;bgfx$(Configuration).lib;bimg_decode$(Configuration).lib;bimg$(Configuration).lib;bx$(Configuration).lib;example-common$(Configuration).lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>copy $(OutDir)$(TargetName)$(TargetExt) ..\..\kltest</Command>
@@ -184,6 +184,7 @@
   <ItemGroup>
     <ClCompile Include="..\src\lua-5.3.5\app\app.c" />
     <ClCompile Include="..\src\lua-5.3.5\app\lua.c" />
+    <ClCompile Include="..\src\lua-5.3.5\app\luahash.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\build\Makefile" />
@@ -197,6 +198,7 @@
     <ClInclude Include="..\bgfx\lua-bgfx\simplelock.h" />
     <ClInclude Include="..\src\inc\klua_cfg.h" />
     <ClInclude Include="..\src\lua-5.3.5\app\app.h" />
+    <ClInclude Include="..\src\lua-5.3.5\app\luastd.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

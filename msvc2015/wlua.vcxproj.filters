@@ -30,6 +30,9 @@
     <ClCompile Include="..\src\lua-5.3.5\app\wapp.c">
       <Filter>lua-5.3.5\app</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\lua-5.3.5\app\luahash.c">
+      <Filter>lua-5.3.5\app</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\src\Makefile">
@@ -60,6 +63,9 @@
     </ClInclude>
     <ClInclude Include="..\bgfx\lua-bgfx\simplelock.h">
       <Filter>bgfx</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\lua-5.3.5\app\luastd.h">
+      <Filter>lua-5.3.5\app</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

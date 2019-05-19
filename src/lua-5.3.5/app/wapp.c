@@ -51,13 +51,13 @@ int32_t _main_(int32_t _argc, char** _argv)
         // Use debug font to print information about this example.
         bgfx_dbg_text_clear(0, false);
         //bgfx_dbg_text_image(
-        //	  uint16_max( (uint16_t)width /2/8, 20)-20
-        //	, uint16_max( (uint16_t)height/2/16, 6)-6
-        //	, 40
-        //	, 12
-        //	, s_logo
-        //	, 160
-        //	);
+        //      uint16_max( (uint16_t)width /2/8, 20)-20
+        //    , uint16_max( (uint16_t)height/2/16, 6)-6
+        //    , 40
+        //    , 12
+        //    , s_logo
+        //    , 160
+        //    );
 
         bgfx_dbg_text_printf(0, 1, 0x0f, "Color can be changed with ANSI \x1b[9;me\x1b[10;ms\x1b[11;mc\x1b[12;ma\x1b[13;mp\x1b[14;me\x1b[0m code too.");
 

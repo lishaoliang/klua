@@ -1,5 +1,7 @@
-#include "app.h"
 #include "klua_cfg.h"
+#include "luastd.h"
+#include "app.h"
+
 
 #if LUA_MATH3D
 #include "libmath.c"
@@ -23,6 +25,10 @@ static void pre_loadlib(lua_State* L, const char* p_name, lua_CFunction func)
 
 int app_openlibs_ex(lua_State *L)
 {
+#if LUA_HASH
+    pre_loadlib(L, "hash", luaopen_hash);
+#endif
+
 #if LUA_BGFX
     pre_loadlib(L, "bgfx", luaopen_bgfx);
 #endif
