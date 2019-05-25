@@ -188,6 +188,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="..\build\Makefile" />
+    <None Include="..\fmt_c.sh" />
     <None Include="..\src\Makefile" />
     <None Include="..\src\mk_def" />
   </ItemGroup>

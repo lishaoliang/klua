@@ -38,6 +38,7 @@
     <None Include="..\src\mk_def">
       <Filter>src</Filter>
     </None>
+    <None Include="..\fmt_c.sh" />
     <None Include="..\build\Makefile">
       <Filter>build</Filter>
     </None>
