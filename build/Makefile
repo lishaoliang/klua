@@ -15,11 +15,11 @@ MY_CFLAGS += -std=gnu99 -DBGFX_STATIC_LINK
 
 # 引用头文件
 MY_INCLUDES := -I ../src/lua-5.3.5/src
-MY_INCLUDES += -I ../src/inc -I ../../klb/inc
+MY_INCLUDES += -I ../src/inc -I ../../klb/inc -I ../../klb/test
 MY_INCLUDES += -I ../bgfx/bx/include -I ../bgfx/bimg/include -I ../bgfx/bgfx/include -I ../bgfx/lua-bgfx
 
 # 引用的静态库
-MY_LIB_STATIC := -L $(my_lib_path) -Bstatic -lklb -llua-5.3.5
+MY_LIB_STATIC := -L $(my_lib_path) -Bstatic -lklb_test -lklb -llua-5.3.5
 MY_LIB_STATIC += -L ../bgfx/bgfx/.build/linux64_gcc/bin -Bstatic -lbgfxRelease -lbimg_encodeRelease -lbimgRelease -lbxRelease -lGLU -lGL -lX11
 
 # 引用的动态库
@@ -80,6 +80,7 @@ so: $(MY_TARGET_SO)
 depends:
 	if [ -d ../src ]; then $(MAKE) -C ../src; fi
 	if [ -d ../../klb ]; then $(MAKE) -C ../../klb; fi
+	if [ -d ../../klb/test ]; then $(MAKE) -C ../../klb/test; fi
 
 $(MY_TARGET_EXE): depends $(MY_LIB_A_OBJS)
 	$(my_tip)
@@ -97,6 +98,7 @@ $(MY_TARGET_SO): $(MY_LIB_SO_OBJS)
 clean:
 	if [ -d ../src ]; then $(MAKE) -C ../src clean; fi
 	if [ -d ../../klb ]; then $(MAKE) -C ../../klb clean; fi
+	if [ -d ../../klb/test ]; then $(MAKE) -C ../../klb/test clean; fi
 
 	@echo "++++++ make clean ++++++"
 	@echo "+ MY_DIRS = $(MY_DIRS)"
