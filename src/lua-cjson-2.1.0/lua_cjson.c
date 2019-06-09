@@ -55,7 +55,7 @@
 #endif
 
 // windows[2019-05-11]
-#ifdef WIN32
+#ifdef _MSC_VER
 #ifndef strncasecmp
 #define strncasecmp     strnicmp
 #endif

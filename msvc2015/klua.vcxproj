@@ -173,7 +173,7 @@
       <SubSystem>Console</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
       <AdditionalLibraryDirectories>..\lib\$(Configuration)\lib_msc_$(Platform)\;..\bgfx\bgfx\.build\win32_vs2015\bin;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>liblua-5.3.5.lib;libklb.lib;libklb_test.lib;bgfx$(Configuration).lib;bimg_decode$(Configuration).lib;bimg$(Configuration).lib;bx$(Configuration).lib;example-common$(Configuration).lib;psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
